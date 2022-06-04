@@ -1,0 +1,4 @@
+.cars-list {
+  height: 500px;
+  overflow-y: scroll;
+}

@@ -1,0 +1,93 @@
+<form
+  class="offset-md-2 col-md-8 bg-warning p-5 rounded mb-5"
+  [formGroup]="carForm"
+  (ngSubmit)="onSubmit()"
+>
+  <h3 class="text-center mb-3">Sell your car</h3>
+
+  <input
+    type="text"
+    placeholder="Name"
+    class="form-control mb-3"
+    formControlName="name"
+  />
+
+  <input
+    type="text"
+    placeholder="Email"
+    class="form-control mb-3"
+    formControlName="email"
+  />
+
+  <input
+    type="number"
+    placeholder="Mobile Number"
+    class="form-control mb-3"
+    formControlName="mobile"
+  />
+
+  <select class="form-select mb-3" formControlName="city">
+    <option value="select">Select City</option>
+    <option *ngFor="let city of citys" value="{{ city }}">{{ city }}</option>
+  </select>
+
+  <select class="form-select mb-3" formControlName="brand">
+    <option value="select">Your Car Brand</option>
+    <option *ngFor="let brand of brands" value="{{ brand }}">
+      {{ brand }}
+    </option>
+  </select>
+
+  <input
+    type="text"
+    placeholder="Your Car Model"
+    class="form-control mb-3"
+    formControlName="model"
+  />
+
+  <input
+    type="number"
+    placeholder="Km Driven"
+    class="form-control mb-3"
+    formControlName="kmd"
+  />
+
+  <select class="form-select mb-3" formControlName="year">
+    <option value="select">Registered Year</option>
+    <option *ngFor="let year of years" value="{{ year }}">{{ year }}</option>
+  </select>
+
+  <select class="form-select mb-3" formControlName="fual">
+    <option value="select">Select Fual Type</option>
+    <option value="petrol">Petrol</option>
+    <option value="diesel">Diesel</option>
+    <option value="electric">Electric</option>
+  </select>
+
+  <select class="form-select mb-3" formControlName="owner">
+    <option value="select">Select Owner</option>
+    <option value="First Owner">1 Owner</option>
+    <option value="Second Owner">2 Owner</option>
+    <option value="Third Owner">3 Owner</option>
+  </select>
+
+  <input
+    type="number"
+    placeholder="Expected Price"
+    class="form-control mb-3"
+    formControlName="price"
+  />
+
+  <input
+    type="text"
+    placeholder="Car Image"
+    class="form-control mb-4"
+    formControlName="image"
+  />
+
+  <p *ngIf="error" class="text-danger">{{ error }}</p>
+
+  <button class="btn btn-success w-50" [disabled]="!carForm.valid">
+    Submit
+  </button>
+</form>

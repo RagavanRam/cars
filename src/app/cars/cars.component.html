@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-6">
+    <app-car-edit></app-car-edit>
+  </div>
+  <div class="col-lg-6">
+    <div class="row cars-list">
+      <app-car
+        class="col-4 py-3 rounded car"
+        *ngFor="let car of cars; index as i"
+        [car]="car"
+        (click)="toDetail(i)"
+      ></app-car>
+    </div>
+  </div>
+</div>
